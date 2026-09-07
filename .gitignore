@@ -1,0 +1,35 @@
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments & Virtual Envs
+.env
+venv/
+.venv/
+env/
+ENV/
+
+# Large Model Binaries (Can be regenerated using `python scripts/export_onnx.py`)
+models/detector/*.onnx
+models/vad/*.onnx
+
+# Sample Test Audio Outputs
+*.wav
+*.pcm
+*.mp3
+*.flac
+*.ogg
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db

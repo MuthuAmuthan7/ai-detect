@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  ai-voice-detector:
+    build: .
+    container_name: ai_voice_detector
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=models/detector/model.onnx
+      - VAD_MODEL_PATH=models/vad/silero_vad.onnx
+      - AUDIO_SAMPLE_RATE=16000
+      - INPUT_SAMPLE_RATE=8000
+      - WINDOW_SECONDS=3.0
+      - STRIDE_SECONDS=1.0
+      - AI_THRESHOLD=0.90
+      - HUMAN_THRESHOLD=0.10
+      - EMA_ALPHA=0.4
+      - ONNX_PROVIDER=cpu
+      - ORT_INTRA_OP_THREADS=4
+    volumes:
+      - ./models:/app/models
+    restart: unless-stopped
